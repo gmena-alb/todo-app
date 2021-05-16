@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* Primary Colors */
+  --color-white: hsl(0, 0%, 100%);
+  --color-blue-1: hsl(220, 98%, 61%);
+  --color-gradient-blue: hsl(192, 100%, 67%);
+  --color-gradient-violet: hsl(280, 87%, 65%);
+}
+
+.theme-light {
+  --verylightgrey: hsl(0, 0%, 98%);
+  --verylightgreyblue: hsl(236, 33%, 92%);
+  --lightgrayblue: hsl(233, 11%, 84%);
+  --darkgreyblue: hsl(236, 9%, 61%);
+  --verydarkgreyblue: hsl(235, 19%, 35%);
+}
+
+.theme-dark {
+  --color-1: hsl(235, 21%, 11%);
+  --color-2: #25273c;
+  --color-3: hsl(234, 39%, 85%);
+  --color-4: hsl(236, 33%, 92%);
+  --color-6: hsl(233, 14%, 35%);
+  --color-7: hsl(237, 14%, 26%);
+}

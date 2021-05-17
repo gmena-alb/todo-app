@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../context/context';
 import moonIcon from '../images/icon-moon.svg';
 import sunIcon from '../images/icon-sun.svg';
-import lightMobileBG from '../images/bg-mobile-light.jpg';
-import darkMobileBG from '../images/bg-mobile-dark.jpg';
 
 const Header = () => {
   const { toggleTheme, theme, setItemList, itemList } = useGlobalContext();

@@ -11,7 +11,7 @@ const Filters = () => {
         <div className="filters">
           <div
             className={
-              activeFilter == 'All' ? 'filter filter-active' : 'filter'
+              activeFilter === 'All' ? 'filter filter-active' : 'filter'
             }
             onClick={() => filterList('All')}
           >
@@ -19,7 +19,7 @@ const Filters = () => {
           </div>
           <div
             className={
-              activeFilter == 'Active' ? 'filter filter-active' : 'filter'
+              activeFilter === 'Active' ? 'filter filter-active' : 'filter'
             }
             onClick={() => filterList('Active')}
           >
@@ -27,7 +27,7 @@ const Filters = () => {
           </div>
           <div
             className={
-              activeFilter == 'Completed' ? 'filter filter-active' : 'filter'
+              activeFilter === 'Completed' ? 'filter filter-active' : 'filter'
             }
             onClick={() => filterList('Completed')}
           >

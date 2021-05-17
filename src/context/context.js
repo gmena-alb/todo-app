@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react';
-import ListItem from '../components/ListItem';
 
 const AppContext = React.createContext();
 
@@ -9,7 +8,6 @@ const AppProvider = ({ children }) => {
   const [filteredList, setFilteredList] = useState([]);
   const [itemsLeft, setItemLeft] = useState(0);
   const [activeFilter, setActiveFilter] = useState('All');
-  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
 
   const toggleTheme = () => {
@@ -61,6 +59,7 @@ const AppProvider = ({ children }) => {
     getItemsLeft();
     setFilteredList(itemList);
     filterList(activeFilter);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemList]);
 
   useEffect(() => {

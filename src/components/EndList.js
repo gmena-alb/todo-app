@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   padding: 2rem 2rem;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  max-width: 54rem;
+  min-width: 32rem;
+  width: 90%;
   .clear-container {
     cursor: pointer;
   }

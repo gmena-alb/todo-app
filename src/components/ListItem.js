@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { GrClose } from 'react-icons/gr';
-import { FaCheck } from 'react-icons/fa';
+
+import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useGlobalContext } from '../context/context';
 
 const ListItem = ({ id, text, isCompleted }) => {
@@ -14,7 +14,7 @@ const ListItem = ({ id, text, isCompleted }) => {
       </div>
       <p className="item-text">{text}</p>
       <div className="remove" onClick={() => removeItem(id)}>
-        <GrClose />
+        <FaTimes />
       </div>
     </Wrapper>
   );
@@ -28,11 +28,6 @@ const Wrapper = styled.li`
     padding: 2rem;
 
     .circle {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      margin-right: 1rem;
-
       .check-icon {
         display: none;
       }
@@ -57,6 +52,19 @@ const Wrapper = styled.li`
 
     .item-text {
       text-decoration: line-through;
+    }
+  }
+
+  .remove {
+    cursor: pointer;
+    @media (min-width: 1440px) {
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+    }
+  }
+  &:hover .remove {
+    @media (min-width: 1440px) {
+      opacity: 1;
     }
   }
 `;

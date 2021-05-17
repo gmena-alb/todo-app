@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
   const [itemList, setItemList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [itemsLeft, setItemLeft] = useState(0);
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const toggleTheme = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -39,6 +40,7 @@ const AppProvider = ({ children }) => {
   };
 
   const filterList = (filter) => {
+    setActiveFilter(filter);
     if (filter === 'All') {
       setFilteredList(itemList);
     }
@@ -71,6 +73,7 @@ const AppProvider = ({ children }) => {
         deleteCompletedTasks,
         filteredList,
         filterList,
+        activeFilter,
       }}
     >
       {children}

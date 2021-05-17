@@ -118,4 +118,8 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .info-text {
+    color: ${(props) => props.theme.endSectionText};
+  }
+
 `;

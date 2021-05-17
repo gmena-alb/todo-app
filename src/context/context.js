@@ -9,6 +9,8 @@ const AppProvider = ({ children }) => {
   const [filteredList, setFilteredList] = useState([]);
   const [itemsLeft, setItemLeft] = useState(0);
   const [activeFilter, setActiveFilter] = useState('All');
+  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
 
   const toggleTheme = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -60,6 +62,17 @@ const AppProvider = ({ children }) => {
     setFilteredList(itemList);
   }, [itemList]);
 
+  useEffect(() => {
+    const event = window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1440) {
+        setIsDesktop(true);
+      } else {
+        setIsDesktop(false);
+      }
+    });
+    return () => window.removeEventListener('resize', event);
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -74,6 +87,7 @@ const AppProvider = ({ children }) => {
         filteredList,
         filterList,
         activeFilter,
+        isDesktop,
       }}
     >
       {children}

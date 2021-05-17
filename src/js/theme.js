@@ -68,6 +68,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     .input-item {
       background-color: ${(props) => props.theme.itemList};
+      color: ${(props) => props.theme.fontColor};
     }
     .filter {
     }

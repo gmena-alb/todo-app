@@ -75,6 +75,7 @@ const Wrapper = styled.header`
       letter-spacing: 1rem;
       grid-column-start: 1;
       grid-row-start: 1;
+      user-select: none;
       @media (min-width: 1440px) {
         font-size: 4.2rem;
       }
@@ -83,6 +84,7 @@ const Wrapper = styled.header`
       grid-row-start: 1;
       grid-column-start: 2;
       text-align: right;
+      user-select: none;
     }
     .circle {
       position: absolute;

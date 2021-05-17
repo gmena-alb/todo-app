@@ -7,14 +7,14 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme, GlobalStyles } from './js/theme.js';
 
 function App() {
-  const { theme } = useGlobalContext();
+  const { theme, isDesktop } = useGlobalContext();
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
       <Header />
       <List />
-      <Filters />
+      {!isDesktop && <Filters />}
     </ThemeProvider>
   );
 }

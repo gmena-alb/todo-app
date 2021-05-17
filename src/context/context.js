@@ -3,8 +3,26 @@ import React, { useState, useContext, useEffect } from 'react';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
-  const [itemList, setItemList] = useState([]);
+  const getLocalStorageList = () => {
+    let itemList = localStorage.getItem('itemList');
+    if (itemList) {
+      return (itemList = JSON.parse(localStorage.getItem('itemList')));
+    } else {
+      return [];
+    }
+  };
+
+  const getLocalStorageTheme = () => {
+    let theme = localStorage.getItem('theme');
+    if (theme) {
+      return (theme = JSON.parse(localStorage.getItem('theme')));
+    } else {
+      return 'light';
+    }
+  };
+
+  const [theme, setTheme] = useState(getLocalStorageTheme());
+  const [itemList, setItemList] = useState(getLocalStorageList());
   const [filteredList, setFilteredList] = useState([]);
   const [itemsLeft, setItemLeft] = useState(0);
   const [activeFilter, setActiveFilter] = useState('All');
@@ -59,8 +77,13 @@ const AppProvider = ({ children }) => {
     getItemsLeft();
     setFilteredList(itemList);
     filterList(activeFilter);
+    localStorage.setItem('itemList', JSON.stringify(itemList));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemList]);
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+  }, [theme]);
 
   useEffect(() => {
     const event = window.addEventListener('resize', () => {

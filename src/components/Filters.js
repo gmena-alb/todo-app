@@ -66,8 +66,10 @@ const Wrapper = styled.section`
     font-size: 1.5rem;
     font-weight: 700;
     cursor: pointer;
+
     @media (min-width: 1440px) {
       font-size: 1.2rem;
+      padding: 1rem 0;
     }
   }
   .filter:not(:last-child) {

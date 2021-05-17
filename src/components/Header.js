@@ -59,14 +59,15 @@ const Wrapper = styled.header`
   align-items: center;
 
   .container {
-    padding: 4.8rem 2.4rem;
+    margin: 4.8rem 0;
+    padding: 0 2.4rem;
     display: grid;
     row-gap: 4rem;
     max-width: 58.7rem;
     width: 100%;
     position: relative;
     @media (min-width: 1440px) {
-      padding-top: 7.5rem;
+      margin-top: 7.5rem;
     }
     .logo {
       font-size: 2.8rem;
@@ -88,10 +89,10 @@ const Wrapper = styled.header`
     }
     .circle {
       position: absolute;
-      bottom: 5.8rem;
+      bottom: 1.2rem;
       left: 4.5rem;
       @media (min-width: 1440px) {
-        bottom: 6.7rem;
+        bottom: 2rem;
       }
     }
     .input-item {

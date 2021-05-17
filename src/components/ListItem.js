@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useGlobalContext } from '../context/context';
 
-const ListItem = ({ id, text, isCompleted }) => {
+const ListItem = ({ id, text, isCompleted, ref }) => {
   const { setCompleted, removeItem } = useGlobalContext();
 
   return (
-    <Wrapper className={isCompleted ? 'item item-completed' : 'item'}>
+    <Wrapper className={isCompleted ? 'item item-completed' : 'item'} ref={ref}>
       <div className="circle" onClick={() => setCompleted(id)}>
         <FaCheck className="check-icon" />
       </div>
@@ -20,7 +20,7 @@ const ListItem = ({ id, text, isCompleted }) => {
   );
 };
 
-const Wrapper = styled.li`
+const Wrapper = styled.div`
   &.item {
     display: flex;
     justify-content: space-between;

@@ -12,29 +12,33 @@ const List = () => {
     <Wrapper>
       <DragDropContext onDragEnd={() => {}}>
         <Droppable droppableId={'item-list'}>
-          {(providedDroppable) => (
+          {(provided) => (
             <ul
               className="item-list"
-              {...providedDroppable.droppableProps}
-              ref={providedDroppable.innerRef}
+              {...provided.droppableProps}
+              ref={provided.innerRef}
             >
               {filteredList.map((item, index) => {
                 const { id, itemText, completed } = item;
                 return (
                   <Draggable key={id} draggableId={id} index={index}>
-                    {(providedDraggable) => (
-                      <ListItem
-                        id={id}
-                        text={itemText}
-                        isCompleted={completed}
-                        {...providedDraggable.draggableProps}
-                        {...providedDraggable.dragHandleProps}
-                        ref={providedDraggable.innerRef}
-                      />
+                    {(provided) => (
+                      <li
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        <ListItem
+                          id={id}
+                          text={itemText}
+                          isCompleted={completed}
+                        />
+                      </li>
                     )}
                   </Draggable>
                 );
               })}
+              {provided.placeholder}
             </ul>
           )}
         </Droppable>

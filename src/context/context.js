@@ -60,6 +60,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     getItemsLeft();
     setFilteredList(itemList);
+    filterList(activeFilter);
   }, [itemList]);
 
   useEffect(() => {

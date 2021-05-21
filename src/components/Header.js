@@ -9,8 +9,12 @@ const Header = () => {
 
   const [itemText, setItemText] = useState('');
 
-  const handleKeyPress = (event) => {
-    if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+  const handleKeyDown = (event) => {
+    if (
+      event.code === 'Enter' ||
+      event.code === 'NumpadEnter' ||
+      event.keyCode == 13
+    ) {
       event.preventDefault();
 
       const newItem = {
@@ -18,8 +22,10 @@ const Header = () => {
         itemText: itemText,
         completed: false,
       };
-      setItemList([...itemList, newItem]);
-      setItemText('');
+      if (itemText) {
+        setItemList([...itemList, newItem]);
+        setItemText('');
+      }
     }
   };
 
@@ -40,7 +46,7 @@ const Header = () => {
           className="input-item"
           placeholder="Create a new todo..."
           value={itemText}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
           onChange={(e) => setItemText(e.target.value)}
         />
       </div>

@@ -6,11 +6,11 @@ import ListItem from './ListItem';
 import EndList from './EndList';
 
 const List = () => {
-  const { itemList, filteredList } = useGlobalContext();
+  const { itemList, filteredList, handleOnDragEnd } = useGlobalContext();
 
   return (
     <Wrapper>
-      <DragDropContext onDragEnd={() => {}}>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId={'item-list'}>
           {(provided) => (
             <ul

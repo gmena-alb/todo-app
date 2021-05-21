@@ -28,6 +28,24 @@ const AppProvider = ({ children }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1440);
 
+  const handleOnDragEnd = (result) => {
+    console.log('happening');
+    const { destination, source, draggableId } = result;
+    if (!destination) return;
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const items = Array.from(filteredList);
+    const [reorderedItem] = items.splice(source.index, 1);
+    items.splice(destination.index, 0, reorderedItem);
+
+    setItemList(items);
+  };
+
   const toggleTheme = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
@@ -111,6 +129,7 @@ const AppProvider = ({ children }) => {
         filterList,
         activeFilter,
         isDesktop,
+        handleOnDragEnd,
       }}
     >
       {children}
